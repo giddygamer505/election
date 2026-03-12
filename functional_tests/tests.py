@@ -19,10 +19,21 @@ class visit_web(StaticLiveServerTestCase):
     def test_people_see_candidates(self):
         #people use the web-app "Election"
         self.browser.get(self.live_server_url)
-        time.sleep(1)
+
         #They see a big "Election" text
         header = self.browser.find_element(By.TAG_NAME,'h1')
         self.assertIn('Election',header.text)
+        
+
+        #They see the first candidate name as a link (Jose Carlo)
+        first_candidate = self.browser.find_element(By.TAG_NAME,'a')
+        self.assertEqual('Jose Carlo',first_candidate.text)
         time.sleep(1)
+
+        #Someone interest so he click Jose's link
+        first_candidate.click()
+        time.sleep(1)
+
+
         
 
