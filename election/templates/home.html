@@ -7,6 +7,10 @@
 </head>
 <body>
     <h1>Election</h1>
-    <h3>Jose Carlo</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label>Jose Carlo</label>
+        <button type="submit">ลงคะแนน</button>
+    </form>
 </body>
 </html>
