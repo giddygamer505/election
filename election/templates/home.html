@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Election</title>
-    </head>
-    <body>
-        <h1>Election</h1>
-        <form action="" method="post">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election</title>
+</head>
+<body>
+    <h1>Election</h1>
+
+    {% for candidate in candidates %}
+    <div style="margin-bottom: 10px;">
+        <strong>{{ candidate.name }}</strong>
+        <form action="{% url 'election:vote' candidate.id %}" method="post" style="display: inline;">
             {% csrf_token %}
-            <label>Jose Carlo</label>
-            <button type="submit">ลงคะแนน</button>
+            <button type="submit">โหวต</button>
         </form>
-    </body>
+    </div>
+    {% endfor %}
+</body>
 </html>

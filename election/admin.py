@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import candidate
+from .models import Candidate
 
-@admin.register(candidate)
+@admin.register(Candidate)
 class CandidateAdmin(admin.ModelAdmin):
     # 1. แสดงคอลัมน์ name และ votes ในหน้าแสดงรายการ
     list_display = ('name', 'votes')
