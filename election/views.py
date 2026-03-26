@@ -15,3 +15,11 @@ def vote(request,candidate_id):
         return redirect('election:home') 
         
     return redirect('election:home')
+
+def login(request):
+    if request.method == 'POST':
+        voter_id = request.POST.get('voter_id').strip()
+        if voter_id:
+            request.session['voter_id'] = voter_id
+            return redirect('election:home')
+    return render(request, 'login.html')
