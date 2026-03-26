@@ -25,7 +25,6 @@ class visit_web(StaticLiveServerTestCase):
         header = self.browser.find_element(By.TAG_NAME,'h1')
         self.assertIn('Election',header.text)
         
-
         #They see the first candidate name as a link (Jose Carlo)
         first_candidate = self.browser.find_element(By.TAG_NAME,'h3')
         self.assertEqual('Jose Carlo',first_candidate.text)
@@ -34,7 +33,6 @@ class visit_web(StaticLiveServerTestCase):
         #He see button to vote
         jose_btn = self.browser.find_element(By.ID,'first_btn')
         self.assertEqual(jose_btn.text,"Vote to Jose")
-
 
         
 
