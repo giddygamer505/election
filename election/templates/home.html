@@ -9,13 +9,15 @@
     <h1>Election</h1>
 
     {% for candidate in candidates %}
-    <div style="margin-bottom: 10px;">
-        <strong>{{ candidate.name }}</strong>
+    <div>
+        <strong>{{ candidate.name }} | ผลคะแนนเสียง :  {{ candidate.votes }}</strong><br>
+        
         <form action="{% url 'election:vote' candidate.id %}" method="post" style="display: inline;">
             {% csrf_token %}
-            <button type="submit">โหวต</button>
+            <button type="submit">ลงคะแนนเสียง</button>
         </form>
     </div>
+    <hr style="margin-bottom: 20px;">
     {% endfor %}
 </body>
 </html>
